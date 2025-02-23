@@ -1,4 +1,4 @@
-OPEimport openai
+import openai
 import logging
 import os
 from dotenv import load_dotenv
@@ -39,15 +39,4 @@ def handle_message(update: Update, context: CallbackContext) -> None:
 
 def main():
     updater = Updater(TELEGRAM_BOT_TOKEN, use_context=True)
-    dp = updater.dispatcher
-    
-    dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
-    
-    updater.start_polling()
-    updater.idle()
-
-if __name__ == "__main__":
-    print(f"OpenAI Key: {OPENAI_API_KEY[:5]}********")  # Testing ke liye (puri key mat print karna!)
-    print(f"Telegram Token: {TELEGRAM_BOT_TOKEN[:5]}********")
-    main()
+    dp = updat
